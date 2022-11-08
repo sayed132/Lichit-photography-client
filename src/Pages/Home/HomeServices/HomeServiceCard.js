@@ -24,8 +24,8 @@ const HomeServiceCard = ({ homeService }) => {
                             <p className='text-2xl text-orange-600 font-semibold'>Price: ${price}</p>
                         </div>
                         <div className="card-actions ">
-                            <Link to={`/checkout/${_id}`}>
-                                <button className="btn btn-primary">Details</button>
+                            <Link to={`/services/${_id}`}>
+                            <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Details</button>
                             </Link>
                         </div>
                     </div>
