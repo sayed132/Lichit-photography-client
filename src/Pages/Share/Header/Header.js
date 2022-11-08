@@ -32,7 +32,7 @@ const Header = () => {
         /* navbar start */
         <div>
             {/* largest device navbar */}
-            <div className="hidden lg:navbar bg-blue-800 mb-12 text-white">
+            <div className="hidden lg:navbar bg-blue-800  text-white">
                 <div className="navbar-start lg:ml-3">
 
                     <div className=' flex items-center'>
@@ -46,10 +46,10 @@ const Header = () => {
                     <ul className="menu menu-horizontal p-0">
                         <>
                             {
-                                user?.uid ? 
-                                <>{menuItems2}</>
-                                :
-                                <>{menuItems}</>
+                                user?.uid ?
+                                    <>{menuItems2}</>
+                                    :
+                                    <>{menuItems}</>
                             }
                         </>
                     </ul>
@@ -97,7 +97,14 @@ const Header = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            {menuItems}
+                            <>
+                                {
+                                    user?.uid ?
+                                        <>{menuItems2}</>
+                                        :
+                                        <>{menuItems}</>
+                                }
+                            </>
                         </ul>
                     </div>
                 </div>
