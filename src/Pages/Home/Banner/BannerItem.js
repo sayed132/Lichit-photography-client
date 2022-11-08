@@ -11,8 +11,8 @@ const BannerItem = ({slide}) => {
                 <div className="absolute flex justify-end transform -translate-y-1/2 left-24 top-1/4">
                     <h1 className='text-6xl font-bold text-white'>
                         Affordable <br />
-                        Price for Car <br />
-                        Servicing
+                        Price for Weeding <br />
+                        Photography
                     </h1>
                 </div>
                 <div className="absolute flex justify-end transform -translate-y-1/2 w-2/5 left-24 top-1/2">
@@ -20,7 +20,7 @@ const BannerItem = ({slide}) => {
                 </div>
                 <div className="absolute flex justify-start transform -translate-y-1/2 w-2/5 left-24 top-3/4">
                 <button className="btn btn-secondary mr-5">Discover more</button>
-                    <button className="btn btn-outline btn-primary">Latest project</button>
+                    <button className="btn btn-outline btn-primary">Latest Click</button>
                 </div>
                 <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
                     <a href={`#slide${prev}`} className="btn btn-circle mr-5">❮</a>
