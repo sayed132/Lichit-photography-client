@@ -21,6 +21,7 @@ const Login = () => {
     googleLogin(googleProvider)
       .then(result => {
         const user = result.user;
+        toast.success('success fully LogeIn.')
         console.log(user);
         navigate(from, { replace: true });
       })
@@ -31,6 +32,7 @@ const Login = () => {
     githubLogin(githubProvider)
       .then(result => {
         const user = result.user;
+        toast.success('success fully LogeIn.')
         setUser(user)
         console.log(user);
         navigate(from, { replace: true });
