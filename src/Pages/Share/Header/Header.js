@@ -11,7 +11,15 @@ const Header = () => {
             <li className='font-semibold'><Link to={'/'}>Home</Link></li>
             <li className='font-semibold'><Link to={'/services'}>Services</Link></li>
             <li className='font-semibold'><Link to={'/'}>Blog</Link></li>
-            <li className='font-semibold'><Link to={'/'}>FAQ</Link></li>
+        </>
+    </>
+    const menuItems2 = <>
+        <>
+            <li className='font-semibold'><Link to={'/'}>Home</Link></li>
+            <li className='font-semibold'><Link to={'/services'}>Services</Link></li>
+            <li className='font-semibold'><Link to={'/'}>My Reviews</Link></li>
+            <li className='font-semibold'><Link to={'/services'}>Add Service</Link></li>
+            <li className='font-semibold'><Link to={'/'}>Blog</Link></li>
         </>
     </>
 
@@ -36,7 +44,14 @@ const Header = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                        {menuItems}
+                        <>
+                            {
+                                user?.uid ? 
+                                <>{menuItems2}</>
+                                :
+                                <>{menuItems}</>
+                            }
+                        </>
                     </ul>
 
                 </div>
@@ -95,7 +110,7 @@ const Header = () => {
                                 <Link to={'/'} className="btn btn-ghost normal-case text-xl font-bold ">
                                     <span className='text-orange-600'>Licht</span> &nbsp;<span className='text-yellow-500'>grapher</span>
                                 </Link>
-                                
+
                             </label>
                             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                                 <>
