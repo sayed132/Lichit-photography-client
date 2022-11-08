@@ -1,0 +1,5 @@
+@media screen and (min-width: 999px) and (max-width: 2400px) {
+    .extra-style{
+        height: 550px;
+    }
+}
