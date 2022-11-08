@@ -37,7 +37,7 @@ const Signup = () => {
         console.log(user);
         form.reset();
         handleUpdateUserProfile(name, photoURL)
-        toast.success('success fully register, Please verify your email address.')
+        toast.success('success fully register, Please Login Now.')
         navigate(from, { replace: true });
       })
       .catch((err) => {
