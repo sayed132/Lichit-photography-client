@@ -10,7 +10,7 @@ import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import './Login.css';
 
 const Login = () => {
-  const { signIn, setLoading, providerLogin, githubLogin , setUser} = useContext(AuthContext);
+  const { signIn, setLoading, googleLogin, githubLogin , setUser} = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
@@ -18,7 +18,7 @@ const Login = () => {
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
   const handleGoogleSignIn = () => {
-    providerLogin(googleProvider)
+    googleLogin(googleProvider)
       .then(result => {
         const user = result.user;
         console.log(user);
