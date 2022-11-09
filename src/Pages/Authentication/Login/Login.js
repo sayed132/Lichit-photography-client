@@ -26,6 +26,9 @@ const Login = () => {
         navigate(from, { replace: true });
       })
       .catch(error => console.error(error))
+      .finally(() => {
+        setLoading(false);
+      });
   }
 
   const handleGithubLogin = () => {
@@ -38,6 +41,9 @@ const Login = () => {
         navigate(from, { replace: true });
       })
       .catch(error => console.error(error))
+      .finally(() => {
+        setLoading(false);
+      });
   }
 
   const [userInfo, setUserInfo] = useState({

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import Reviews from '../../../Share/Reviews/Reviews';
 
 
 const ServicesDetail = () => {
@@ -30,6 +31,9 @@ const ServicesDetail = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div>
+            <Reviews></Reviews>
             </div>
         </PhotoProvider>
     );
