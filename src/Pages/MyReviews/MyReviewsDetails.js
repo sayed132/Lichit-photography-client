@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 const MyReviewsDetails = ({ rev , handleDelete}) => {
     const { name, photo, review, time, _id, email, serviceName, servicePrice, service } = rev;
     const [ownReviews, setownReviews] = useState({})
-    console.log(rev);
     useEffect(() => {
         fetch(`http://localhost:5000/services/${service}`)
             .then(res => res.json())
@@ -38,12 +37,10 @@ const MyReviewsDetails = ({ rev , handleDelete}) => {
                 <span className="badge badge-ghost badge-sm">${servicePrice}</span>
             </td>
 
-            <td>{review}</td>
-            <th>
-                {/* <button
-                    onClick={() => handleStatusUpdate(_id)}
-                    className="btn btn-ghost btn-xs">{status ? status : 'pending'}</button> */}
-            </th>
+            <td>{review}
+           
+            </td>
+           
         </tr>
     );
 };

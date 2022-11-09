@@ -17,8 +17,6 @@ const Reviews = () => {
         const UserLogin = user?.uid;
         const photo = user?.photoURL;
         const time = new Date().toLocaleString();
-        
-        console.log(review);
 
         const CustomerReview = {
             service: _id,
@@ -31,7 +29,6 @@ const Reviews = () => {
             serviceName: title,
             servicePrice: price
         }
-        console.log(CustomerReview);
 
 
         if (!user) {
@@ -47,7 +44,6 @@ const Reviews = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
                     if (data.acknowledged) {
                         toast.success('Review added successfully')
                         form.reset();

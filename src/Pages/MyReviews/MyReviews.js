@@ -20,7 +20,7 @@ const MyReviews = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    
                     if (data.deletedCount > 0) {
                         toast.success('deleted successfully');
                         const remaining = myOwnReviews.filter(odr => odr._id !== id);
@@ -29,9 +29,10 @@ const MyReviews = () => {
                 })
         }
     }
+
     return (
         <div>
-            <h2 className="text-5xl">You have {myOwnReviews.length} Orders</h2>
+            <h2 className="text-5xl">You have {myOwnReviews.length} Review</h2>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     <thead>
@@ -48,7 +49,6 @@ const MyReviews = () => {
                                 key={rev._id}
                                 rev={rev}
                                 handleDelete={handleDelete}
-                                // handleStatusUpdate={handleStatusUpdate}
                             ></MyReviewsDetails>)
                         }
                     </tbody>
