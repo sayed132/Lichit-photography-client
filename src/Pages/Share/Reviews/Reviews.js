@@ -4,10 +4,10 @@ import { Link, Navigate, useLoaderData, useLocation, useNavigate } from 'react-r
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const Reviews = () => {
-    const location = useLocation()
+    
     
     const { user } = useContext(AuthContext)
-    const { _id, } = useLoaderData()
+    const { _id,title, price } = useLoaderData()
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -27,7 +27,9 @@ const Reviews = () => {
             photo,
             review,
             time,
-            UserLogin
+            UserLogin,
+            serviceName: title,
+            servicePrice: price
         }
         console.log(CustomerReview);
 

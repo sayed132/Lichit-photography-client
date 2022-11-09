@@ -17,7 +17,7 @@ const Header = () => {
         <>
             <li className='font-semibold'><Link to={'/'}>Home</Link></li>
             <li className='font-semibold'><Link to={'/services'}>Services</Link></li>
-            <li className='font-semibold'><Link to={'/'}>My Reviews</Link></li>
+            <li className='font-semibold'><Link to={'/myReviews'}>My Reviews</Link></li>
             <li className='font-semibold'><Link to={'/services'}>Add Service</Link></li>
             <li className='font-semibold'><Link to={'/'}>Blog</Link></li>
         </>
@@ -79,7 +79,7 @@ const Header = () => {
                                 <>
                                     <Link className="py-2 mx-1 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75" to='/login'><button>LogIn</button></Link>
 
-                                    <Link className="py-2 mx-1 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75" to='/register'><button>Register</button></Link>
+                                    <Link className="py-2 mx-1 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75" to='/signup'><button>Register</button></Link>
 
                                 </>
                         }
