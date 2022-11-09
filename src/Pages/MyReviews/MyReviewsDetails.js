@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { GrUpdate } from 'react-icons/gr';
 
 const MyReviewsDetails = ({ rev , handleDelete}) => {
     const { name, photo, review, time, _id, email, serviceName, servicePrice, service } = rev;
@@ -37,9 +38,7 @@ const MyReviewsDetails = ({ rev , handleDelete}) => {
                 <span className="badge badge-ghost badge-sm">${servicePrice}</span>
             </td>
 
-            <td>{review}
-           
-            </td>
+            <td className='flex'><GrUpdate className='text-2xl mr-5' />{review}</td>
            
         </tr>
     );
