@@ -46,14 +46,15 @@ const ServicesDetail = () => {
                     </div>
                 </div>
             </div>
-            <div className=' border-4 grid justify-center justify-items-center grid-cols-1 md:grid-cols-3'>
-                <div className='border-4'>
+            <hr />
+            <div className=' grid justify-center justify-items-center grid-cols-1 md:grid-cols-3'>
+                <div >
                     <Reviews></Reviews>
                 </div>
 
                 {/* all review herre */}
 
-                <div className='border-4 col-span-2 w-4/5'>
+                <div className='col-span-2 w-4/5'>
                     {
                         displayPublicReviews.map(allreviews => <div key={allreviews._id} allreviews={allreviews}>
                             <div className="container shadow-lg flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">

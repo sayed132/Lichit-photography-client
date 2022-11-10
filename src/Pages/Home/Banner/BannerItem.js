@@ -9,16 +9,16 @@ const BannerItem = ({slide}) => {
                     <img src={image} alt="" className="w-full rounded-xl" />
                 </div>
                 <div className="absolute flex justify-end transform -translate-y-1/2 left-24 top-1/4">
-                    <h1 className='text-6xl font-bold text-white'>
+                    <h1 className='text-2xl md:text-6xl font-bold text-white'>
                         Affordable <br />
                         Price for Weeding <br />
                         Photography
                     </h1>
                 </div>
-                <div className="absolute flex justify-end transform -translate-y-1/2 w-2/5 left-24 top-1/2">
+                <div className="absolute hidden md:flex justify-end transform -translate-y-1/2 w-2/5 left-24 top-1/2">
                     <p className='text-xl text-white'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                 </div>
-                <div className="absolute flex justify-start transform -translate-y-1/2 w-2/5 left-24 top-3/4">
+                <div className="absolute hidden md:flex justify-start transform -translate-y-1/2 w-2/5 left-24 top-3/4">
                 <button className="btn btn-secondary mr-5">Discover more</button>
                     <button className="btn btn-outline btn-primary">Latest Click</button>
                 </div>

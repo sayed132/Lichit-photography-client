@@ -32,7 +32,7 @@ const Reviews = () => {
         }
 
         const field = CustomerReview
-        let newReview = {...publicReviews}
+        let newReview = { ...publicReviews }
         newReview = field;
         setPublicReviews(newReview);
         console.log(newReview);
@@ -82,7 +82,18 @@ const Reviews = () => {
                             user?.uid ?
                                 <><button className="btn btn-sm mt-8">Submit</button></>
                                 :
-                                <><Link to={'/login'}><button className="btn btn-sm mt-8">Submit</button></Link></>
+                                <>
+                                    <div className="dropdown">
+                                        <label tabIndex={0} className="btn btn-sm mt-8">Submit</label>
+                                        <div tabIndex={0} className="dropdown-content card card-compact w-64 p-2 shadow bg-primary text-primary-content">
+                                            <div className="card-body">
+                                                <p>Please <Link to={'/login'}>Login</Link> first</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </>
+
+                            // <Link to={'/login'}><button className="btn btn-sm mt-8">Submit</button></Link>
                         }
                     </>
                 </form>
