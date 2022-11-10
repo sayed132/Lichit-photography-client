@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../../../hooks/useTitle';
 
 const AddService = () => {
     const { user } = useContext(AuthContext);
@@ -48,6 +49,7 @@ const AddService = () => {
                 })
                 .catch(er => console.error(er));
     }
+    useTitle("Add Services")
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">

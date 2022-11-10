@@ -7,9 +7,11 @@ import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 import './Login.css';
 
 const Login = () => {
+  useTitle("LogIn")
   const { signIn, setLoading, googleLogin, githubLogin, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();

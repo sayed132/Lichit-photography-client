@@ -6,8 +6,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../Login/Login.css'
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 const Signup = () => {
+  useTitle("SignUp")
   const { createUser, updateUserProfile, setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();

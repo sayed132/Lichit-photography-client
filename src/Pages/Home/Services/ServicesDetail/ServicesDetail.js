@@ -3,22 +3,24 @@ import { Link, useLoaderData } from 'react-router-dom';
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import Reviews from '../../../Share/Reviews/Reviews';
+import useTitle from '../../../../hooks/useTitle';
 
 
 const ServicesDetail = () => {
     const serviceDetail = useLoaderData();
     const { _id, img, price, title, description, } = serviceDetail;
-    const [publicReviews, setPublicReviews] = useState([])
+    const [displayPublicReviews, setDisplayPublicReviews] = useState([])
 
     useEffect(() => {
         fetch(`https://assignment-11-server-site-blush.vercel.app/reviews/${serviceDetail._id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                setPublicReviews(data)
+                setDisplayPublicReviews(data)
             })
     }, [serviceDetail._id,])
 
+    useTitle('Service Details')
     
     return (
         <PhotoProvider>
@@ -53,7 +55,7 @@ const ServicesDetail = () => {
 
                 <div className='border-4 col-span-2 w-4/5'>
                     {
-                        publicReviews.map(allreviews => <div key={allreviews._id} allreviews={allreviews}>
+                        displayPublicReviews.map(allreviews => <div key={allreviews._id} allreviews={allreviews}>
                             <div className="container shadow-lg flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
                                 <div className="flex justify-between p-4">
                                     <div className="flex space-x-4">

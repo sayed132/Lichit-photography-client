@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 import MyReviewsDetails from './MyReviewsDetails';
 
 const MyReviews = () => {
@@ -42,6 +43,8 @@ const MyReviews = () => {
                 })
         }
     }
+
+    useTitle("My Reviews")
 
     return (
         <div>
