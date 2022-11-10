@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../../Contexts/AuthProvider/AuthProvider';
 
@@ -29,10 +29,11 @@ const AddService = () => {
         console.log(AddedService);
 
 
-        fetch('http://localhost:5000/services', {
+        fetch('https://assignment-11-server-site-blush.vercel.app/services', {
                 method: 'POST',
                 headers: {
-                    'content-type': 'application/json'
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${localStorage.getItem('token')}`
                 },
                 body: JSON.stringify(AddedService)
             })

@@ -5,7 +5,11 @@ const MyReviewsDetails = ({ rev , handleDelete}) => {
     const { name, photo, review, time, _id, email, serviceName, servicePrice, service } = rev;
     const [ownReviews, setownReviews] = useState({})
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${service}`)
+        fetch(`https://assignment-11-server-site-blush.vercel.app/services/${service}`,{
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setownReviews(data));
     }, [service])

@@ -5,7 +5,7 @@ import HomeServiceCard from './HomeServiceCard';
 const HomeServices = () => {
     const [serviceLimit, setServiceLimit] = useState([]);
     useEffect( () =>{
-        fetch('http://localhost:5000/servicesHome')
+        fetch('https://assignment-11-server-site-blush.vercel.app/servicesHome')
         .then(res =>res.json())
         .then(data => setServiceLimit(data))
     }, [])

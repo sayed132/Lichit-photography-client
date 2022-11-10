@@ -35,7 +35,7 @@ const Reviews = () => {
             return toast.warning('please login first')
         }
         else {
-            fetch('http://localhost:5000/reviews', {
+            fetch('https://assignment-11-server-site-blush.vercel.app/reviews', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

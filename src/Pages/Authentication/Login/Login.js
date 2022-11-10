@@ -10,7 +10,7 @@ import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import './Login.css';
 
 const Login = () => {
-  const { signIn, setLoading, googleLogin, githubLogin , setUser} = useContext(AuthContext);
+  const { signIn, setLoading, googleLogin, githubLogin, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
@@ -23,6 +23,22 @@ const Login = () => {
         const user = result.user;
         toast.success('success fully LogeIn.')
         console.log(user);
+        const currentUser = {
+          email: user.email
+        }
+
+        fetch('https://assignment-11-server-site-blush.vercel.app/jwt', {
+          method: "POST",
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(currentUser)
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            localStorage.setItem('token', data.token)
+          })
         navigate(from, { replace: true });
       })
       .catch(error => console.error(error))
@@ -38,6 +54,22 @@ const Login = () => {
         toast.success('success fully LogeIn.')
         setUser(user)
         console.log(user);
+        const currentUser = {
+          email: user.email
+        }
+
+        fetch('https://assignment-11-server-site-blush.vercel.app/jwt', {
+          method: "POST",
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(currentUser)
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            localStorage.setItem('token', data.token)
+          })
         navigate(from, { replace: true });
       })
       .catch(error => console.error(error))
@@ -65,6 +97,22 @@ const Login = () => {
         const user = result.user;
         toast.success('success fully LogeIn.')
         form.reset();
+        const currentUser = {
+          email: user.email
+        }
+
+        fetch('https://assignment-11-server-site-blush.vercel.app/jwt', {
+          method: "POST",
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(currentUser)
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            localStorage.setItem('token', data.token)
+          })
         navigate(from, { replace: true });
       })
       .catch((err) => {
@@ -137,7 +185,7 @@ const Login = () => {
       </form>
 
       <button onClick={handleGoogleSignIn}><FcGoogle className='text-2xl' /> &nbsp;Google</button>
-      <button onClick={handleGithubLogin}><FaGithub className='text-2xl'/> &nbsp; Github </button>
+      <button onClick={handleGithubLogin}><FaGithub className='text-2xl' /> &nbsp; Github </button>
     </div>
   );
 };

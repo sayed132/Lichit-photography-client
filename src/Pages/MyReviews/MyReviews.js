@@ -4,23 +4,36 @@ import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import MyReviewsDetails from './MyReviewsDetails';
 
 const MyReviews = () => {
-    const {user} = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
     const [myOwnReviews, setmyOwnReviews] = useState([]);
-    useEffect( () =>{
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
-        .then(res =>res.json())
-        .then(data => setmyOwnReviews(data))
-    }, [user?.email,])
-    
+    useEffect(() => {
+        fetch(`https://assignment-11-server-site-blush.vercel.app/reviews?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    return logOut()
+                }
+                return res.json()
+            })
+            .then(data => setmyOwnReviews(data))
+    }, [user?.email, logOut])
+
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete this review');
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
-                method: 'DELETE'
+            fetch(`https://assignment-11-server-site-blush.vercel.app/reviews/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('token')}`
+                }
             })
                 .then(res => res.json())
                 .then(data => {
-                    
+
                     if (data.deletedCount > 0) {
                         toast.success('deleted successfully');
                         const remaining = myOwnReviews.filter(odr => odr._id !== id);

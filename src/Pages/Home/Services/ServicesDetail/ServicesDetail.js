@@ -3,20 +3,23 @@ import { Link, useLoaderData } from 'react-router-dom';
 import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import Reviews from '../../../Share/Reviews/Reviews';
-import { AuthContext } from '../../../../Contexts/AuthProvider/AuthProvider';
 
 
 const ServicesDetail = () => {
     const serviceDetail = useLoaderData();
-    const { user } = useContext(AuthContext)
     const { _id, img, price, title, description, } = serviceDetail;
-
     const [publicReviews, setPublicReviews] = useState([])
+
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${serviceDetail._id}`)
+        fetch(`https://assignment-11-server-site-blush.vercel.app/reviews/${serviceDetail._id}`)
             .then(res => res.json())
-            .then(data => setPublicReviews(data))
-    }, [serviceDetail._id])
+            .then(data => {
+                console.log(data);
+                setPublicReviews(data)
+            })
+    }, [serviceDetail._id,])
+
+    
     return (
         <PhotoProvider>
             <div className=" mx-auto card-compact w-100 md:w-3/5 my-20 rounded-lg bg-base-100 shadow-xl">

@@ -9,6 +9,7 @@ import Services from "../../Pages/Home/Services/Services";
 import ServicesDetail from "../../Pages/Home/Services/ServicesDetail/ServicesDetail";
 import MyReviews from "../../Pages/MyReviews/MyReviews";
 import Reviews from "../../Pages/Share/Reviews/Reviews";
+import LoadingRoute from "../LoadingRoute/LoadingRoute";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
             {
                 path: '/services/:id',
                 element: <ServicesDetail></ServicesDetail>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-server-site-blush.vercel.app/services/${params.id}`)
             },
             {
                 path: '/login',
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/services',
-                element: <Services></Services>
+                element: <LoadingRoute><Services></Services></LoadingRoute>
             },
             {
                 path: '/myReviews',
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/blog',
-                element: <CourseBlog></CourseBlog>
+                element: <LoadingRoute><CourseBlog></CourseBlog></LoadingRoute>
             }
         ]
     }
