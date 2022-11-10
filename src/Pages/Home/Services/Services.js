@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ServiceCard from './ServiceCard';
 
 const Services = () => {
     const [services, setServices] = useState([]);
-    useEffect( () =>{
+    useEffect(() => {
         fetch('http://localhost:5000/services')
-        .then(res =>res.json())
-        .then(data => setServices(data))
+            .then(res => res.json())
+            .then(data => setServices(data))
     }, [])
     return (
         <div className='mx-5 my-6'>
@@ -22,6 +23,17 @@ const Services = () => {
                         service={service}
                     ></ServiceCard>)
                 }
+                {/* <Link to={'/addService'}><button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Add Service</button></Link> */}
+                <div className="card card-compact bg-base-100 shadow-xl">
+                    <figure><img src="https://securecdn.pymnts.com/wp-content/uploads/2019/12/merchant-service-providers-Endava-value-added-services.jpg" alt="service" /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title">Add a new service!</h2>
+                        <p>Click the button to add new service.</p>
+                        <div className="card-actions justify-end">
+                        <Link to={'/addService'}><button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Add Service</button></Link>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

@@ -1,3 +1,4 @@
+import CourseBlog from "../../Blog/CourseBlog";
 import Error from "../../Error/Error";
 import Main from "../../Layouts/Main";
 import Login from "../../Pages/Authentication/Login/Login";
@@ -44,7 +45,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addService',
-                element: <AddService></AddService>
+                element: <PrivateRoutes><AddService></AddService></PrivateRoutes>
+            },
+            {
+                path: '/blog',
+                element: <CourseBlog></CourseBlog>
             }
         ]
     }

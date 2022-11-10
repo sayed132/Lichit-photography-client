@@ -10,7 +10,7 @@ const Header = () => {
         <>
             <li className='font-semibold'><Link to={'/'}>Home</Link></li>
             <li className='font-semibold'><Link to={'/services'}>Services</Link></li>
-            <li className='font-semibold'><Link to={'/'}>Blog</Link></li>
+            <li className='font-semibold'><Link to={'/blog'}>Blog</Link></li>
         </>
     </>
     const menuItems2 = <>
@@ -19,7 +19,7 @@ const Header = () => {
             <li className='font-semibold'><Link to={'/services'}>Services</Link></li>
             <li className='font-semibold'><Link to={'/myReviews'}>My Reviews</Link></li>
             <li className='font-semibold'><Link to={'/addService'}>Add Service</Link></li>
-            <li className='font-semibold'><Link to={'/'}>Blog</Link></li>
+            <li className='font-semibold'><Link to={'/blog'}>Blog</Link></li>
         </>
     </>
 

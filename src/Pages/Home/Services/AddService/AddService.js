@@ -3,7 +3,8 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../../../Contexts/AuthProvider/AuthProvider';
 
 const AddService = () => {
-    const { user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext);
+    
     const handleAddData = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -11,6 +12,8 @@ const AddService = () => {
         const price = form.price.value
         const img = form.photoURL.value;
         const description = form.review.value;
+        const name = user?.displayName;
+        const email = user?.email;
         const time = new Date().toLocaleString();
 
         const AddedService = {
@@ -18,7 +21,9 @@ const AddService = () => {
             price,
             description,
             img,
-            time
+            time,
+            name,
+            email
         }
 
         console.log(AddedService);
